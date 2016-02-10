@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="@color/button_top_bg"
+        android:endColor="@color/button_bot_bg"
+        android:angle="270" />
+    <corners android:radius="0dp" />
+</shape>

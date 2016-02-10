@@ -1,0 +1,23 @@
+<resources>
+
+    <dimen name="font_size_small">16sp</dimen>
+    <dimen name="font_size_button">22sp</dimen>
+
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="activity_vertical_margin">52dp</dimen>
+
+    <dimen name="main_menu_horizontal_margin">64dp</dimen>
+    <dimen name="main_menu_bottom_margin">64dp</dimen>
+    <dimen name="main_menu_top_margin">64dp</dimen>
+
+    <dimen name="button_icon_size">32dp</dimen>
+    <dimen name="image_button_icon_size">100dp</dimen>
+    <dimen name="button_big_icon_size">64dp</dimen>
+    <dimen name="button_icon_margin">5dp</dimen>
+    <dimen name="button_big_icon_margin">5dp</dimen>
+
+    <dimen name="grid_column_width">200dp</dimen>
+    <dimen name="grid_row_height">200dp</dimen>
+    <dimen name="grid_vertical_spacing">20dp</dimen>
+    <dimen name="grid_horizontal_spacing">20dp</dimen>
+</resources>

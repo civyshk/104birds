@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">104 Aves</string>
+    <string name="preferences_user_vol">UserVol</string>
+
+    <string name="main_title">@string/app_name</string>
+    <string name="title_activity_game">¡Responde!</string>
+    <string name="title_activity_cards">Aves</string>
+    <string name="title_activity_picture_info">Fotografía</string>
+    <string name="title_fragment_results">Resultados</string>
+
+    <string name="play_pictures">¿Cómo se llama?</string>
+    <string name="play_names">¿Qué ave es?</string>
+    <string name="play_cheeps">¿Quién canta?</string>
+    <string name="see_cards">Fichas</string>
+
+    <string name="x_y" formatted="false">%d/%d</string>
+    <string name="which_is_x" formatted="false">¿Cuál es %s?</string>
+    <string name="youve_got_x_correct_answers" formatted="false">Has acertado %d de %d preguntas</string>
+
+    <string name="show_picture">Mostrar fotografía…</string>
+    <string name="show_bird">Mostrar ave…</string>
+    <string name="more">Más…</string>
+
+    <string name="see_wikimedia_picture">Ver foto en Wikimedia</string>
+    <string name="creative_commons">Creative Commons</string>
+    <string name="author">Autor</string>
+    <string name="user">Usuario</string>
+    <string name="attribution">Reconocimiento</string>
+    <string name="share_alike">Compartir igual</string>
+    <string name="version">Versión</string>
+    <string name="public_domain">Dominio Público</string>
+
+    <string name="recorded_by">Grabado por</string>
+    <string name="menu_item_latin_names">Muestra nombres científicos</string>
+    <string name="menu_item_condensed_latin_names">Científico</string>
+    <string name="menu_item_difficult">Dificultad alta</string>
+    <string name="menu_item_condensed_difficult">Difícil</string>
+    <string name="menu_item_about">Acerca de 104 Aves</string>
+    <string name="menu_item_condensed_about">Acerca</string>
+
+    <string name="app_icon_attribution">Icono de la aplicación basado en una fotografía de Andreas Trepte (http://photo-natur.de)</string>
+    <string name="about_author_header">Desarrollador</string>
+    <string name="about_audio_header">Grabaciones de audio</string>
+    <string name="about_pictures_header">Fotografías</string>
+
+</resources>

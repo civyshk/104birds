@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:orientation="horizontal"
+    tools:context="net.project104.civyshkbirds.FragmentPictureCheep">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+
+            <!--I need this custom view because wrap_content in ImageView makes width equal
+             to original image width (before scaling), not post-scale width TODO height match-->
+            <net.project104.civyshkbirds.ImageViewScaling
+                android:id="@+id/imgQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/line_width"
+                android:layout_marginBottom="@dimen/game_picture_margin_bottom"
+                android:background="@color/image_border"
+                android:scaleType="fitCenter"
+                android:clickable="true"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <include android:id="@+id/composite0"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            layout="@layout/button"/>
+        <include android:id="@+id/composite1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            layout="@layout/button"/>
+        <include android:id="@+id/composite2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            layout="@layout/button"/>
+        <include android:id="@+id/composite3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            layout="@layout/button"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

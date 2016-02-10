@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="game_title_weight_small">2</integer>
+    <integer name="game_title_weight_big">6</integer>
+    <integer name="game_frame_weight">12</integer>
+    <integer name="game_next_weight">2</integer>
+
+    <integer name="game_picture_picture_weight">20</integer>
+    <integer name="game_picture_answers_weight">3</integer>
+
+</resources>
+

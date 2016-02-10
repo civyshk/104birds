@@ -1,0 +1,69 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:background="@color/sky_0"
+    tools:context=".MainActivity" >
+<!--
+    <ImageView android:id="@+id/ivStars"
+        android:src="@drawable/stars"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.0"/>
+-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:paddingLeft="@dimen/main_menu_horizontal_margin"
+        android:paddingRight="@dimen/main_menu_horizontal_margin"
+        android:paddingTop="@dimen/main_menu_top_margin"
+        android:paddingBottom="@dimen/main_menu_bottom_margin" >
+
+        <include android:id="@+id/compositeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="0dp"
+            layout="@layout/button" />
+
+        <!-- <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"/> -->
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:src="@drawable/app_icon_104"/>
+
+        <include android:id="@+id/composite0"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            layout="@layout/button"/>
+        <include android:id="@+id/composite1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            layout="@layout/button"/>
+        <include android:id="@+id/composite2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            layout="@layout/button"/>
+        <include android:id="@+id/composite3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            layout="@layout/button"/>
+    </LinearLayout>
+</FrameLayout>

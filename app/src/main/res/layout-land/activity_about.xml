@@ -1,0 +1,138 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="net.project104.civyshkbirds.ActivityPictureInfo">
+    <!--
+        <ImageView android:id="@+id/ivStars"
+            android:src="@drawable/stars"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:alpha="0.0"/>
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/about_app_icon_size"
+            android:layout_height="@dimen/about_app_icon_size"
+            android:layout_margin="@dimen/logo_main_spacing"
+            android:layout_marginBottom="0dp"
+            android:src="@drawable/app_icon_104"
+            android:layout_gravity="bottom"/>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/button_background">
+
+                    <View
+                        android:tag="line_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_width"
+                        android:background="@color/button_top_line"/>
+
+                    <TextView android:id="@+id/tvAuthor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/title_spacing"
+                        android:layout_marginLeft="@dimen/title_spacing"
+                        android:textColorLink="@color/link"/>
+
+                    <View
+                        android:tag="line_bot"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_width"
+                        android:background="@color/button_bot_line"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/about_info_spacing"
+                    android:background="@drawable/button_background">
+
+                    <View
+                        android:tag="line_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_width"
+                        android:background="@color/button_top_line"/>
+
+                    <TextView android:id="@+id/tvPeopleAudio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginRight="@dimen/title_spacing"
+                        android:layout_marginLeft="@dimen/title_spacing"
+                        android:textColorLink="@color/link"/>
+
+                    <View
+                        android:tag="line_bot"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_width"
+                        android:background="@color/button_bot_line"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/about_info_spacing"
+                    android:background="@drawable/button_background">
+
+                    <View
+                        android:tag="line_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_width"
+                        android:background="@color/button_top_line"/>
+
+                    <TextView android:id="@+id/tvPeoplePictures"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginRight="@dimen/title_spacing"
+                        android:layout_marginLeft="@dimen/title_spacing"
+                        android:textColorLink="@color/link"/>
+
+                    <View
+                        android:tag="line_bot"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_width"
+                        android:background="@color/button_bot_line"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

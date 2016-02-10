@@ -1,0 +1,50 @@
+<resources>
+
+    <string name="app_name">104 Birds</string>
+    <string name="preferences_file_name">net.project104.civyshkbirds.preferences</string>
+    <string name="preferences_user_vol">UserVol</string>
+    <string name="preferences_only_family">OnlyFamily</string>
+    <string name="preferences_latin_names">LatinNames</string>
+
+    <string name="main_title">@string/app_name</string>
+    <string name="title_activity_game">Solve!</string>
+    <string name="title_activity_cards">Birds</string>
+    <string name="title_activity_picture_info">Picture</string>
+    <string name="title_fragment_results">Results</string>
+
+    <string name="play_pictures">What\'s its name?</string>
+    <string name="play_names">Which is the bird?</string>
+    <string name="play_cheeps">Who sings?</string>
+    <string name="see_cards">Cards</string>
+
+    <string name="x_y" formatted="false">%d/%d</string>
+    <string name="which_is_x" formatted="false">Which is %s?</string>
+    <string name="youve_got_x_correct_answers" formatted="false">You\'ve got %d correct answers out of %d</string>
+
+    <string name="show_picture">Show picture…</string>
+    <string name="show_bird">Show bird…</string>
+    <string name="more">More…</string>
+
+    <string name="see_wikimedia_picture">See picture in Wikimedia</string>
+    <string name="creative_commons">Creative Commons</string>
+    <string name="author">Author</string>
+    <string name="user">User</string>
+    <string name="attribution">Attribution</string>
+    <string name="share_alike">Share alike</string>
+    <string name="version">Version</string>
+    <string name="public_domain">Public Domain</string>
+
+    <string name="recorded_by">Recorded by</string>
+    <string name="menu_item_latin_names">Show scientific names</string>
+    <string name="menu_item_condensed_latin_names">Scientific</string>
+    <string name="menu_item_difficult">Difficult mode</string>
+    <string name="menu_item_condensed_difficult">Difficult</string>
+    <string name="menu_item_about">About 104 Birds</string>
+    <string name="menu_item_condensed_about">About</string>
+
+    <string name="app_icon_attribution">App Icon based on a picture of Andreas Trepte (http://photo-natur.de)</string>
+    <string name="about_author_header">Developer</string>
+    <string name="about_audio_header">Contributors to audio samples</string>
+    <string name="about_pictures_header">Contributors to pictures</string>
+
+</resources>

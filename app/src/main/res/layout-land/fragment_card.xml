@@ -1,0 +1,91 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:padding="0dp"
+    android:orientation="horizontal"
+    tools:context="net.project104.civyshkbirds.ActivityCards">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="@integer/card_info_left_weight"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/button_background">
+
+            <View
+                android:tag="line_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/button_top_line"/>
+
+            <TextView android:id="@+id/tvLatinName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
+
+            <TextView android:id="@+id/tvCommonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
+
+            <View
+                android:tag="line_bot"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/button_bot_line"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/half_transparent_background"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <View
+                android:tag="line_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/button_top_line"
+                android:layout_alignParentTop="true"/>
+
+            <include android:id="@+id/compositePlayer"
+                layout="@layout/composite_player_block"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/line_width"
+                android:layout_marginBottom="@dimen/line_width"
+                android:background="@color/background_material_light" />
+
+            <View
+                android:tag="line_bot"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/button_bot_line"
+                android:layout_alignParentBottom="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <net.project104.civyshkbirds.ViewPagerCustom
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="@integer/card_info_right_weight"
+        android:paddingLeft="@dimen/view_pager_protruding_left"
+        android:paddingRight="@dimen/view_pager_protruding_right"/>
+
+</LinearLayout>

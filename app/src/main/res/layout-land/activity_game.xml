@@ -1,0 +1,83 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    android:background="@color/sky_0"
+    tools:context=".GameActivity">
+<!--
+    <ImageView android:id="@+id/ivStars"
+        android:src="@drawable/stars"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.0"/>
+-->
+    <FrameLayout
+        android:id="@+id/gameFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="@integer/game_frame_weight"
+        android:paddingLeft="@dimen/game_horizontal_padding"
+        android:paddingRight="@dimen/game_horizontal_padding"
+        android:paddingTop="@dimen/game_vertical_padding"
+        android:paddingBottom="@dimen/game_vertical_padding" >
+    </FrameLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/game_horizontal_padding"
+        android:paddingRight="@dimen/game_horizontal_padding"
+        android:paddingTop="@dimen/game_vertical_padding"
+        android:paddingBottom="@dimen/game_vertical_padding">
+
+        <View
+            android:layout_height="0dp"
+            android:layout_weight="3" />
+
+        <LinearLayout
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <include android:id="@+id/compositeTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                layout="@layout/button" />
+
+            <FrameLayout
+                android:id="@+id/butFrameNext"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:visibility="invisible">
+
+                <Button
+                    android:id="@+id/butNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="finnishFragment"
+                    android:background="@null"/>
+                <net.project104.civyshkbirds.ImageViewScaling
+                    android:id="@+id/imgNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icon_next"
+                    android:layout_gravity="center" />
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </TableLayout>
+</FrameLayout>

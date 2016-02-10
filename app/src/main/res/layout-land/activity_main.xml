@@ -1,0 +1,85 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:background="@color/sky_0"
+    tools:context=".MainActivity" >
+<!--
+    <ImageView android:id="@+id/ivStars"
+        android:src="@drawable/stars"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.0"/>
+-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <net.project104.civyshkbirds.ImageViewScaling
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="bottom"
+            android:layout_marginRight="@dimen/logo_main_spacing"
+            android:layout_marginBottom="@dimen/main_menu_bottom_margin"
+            android:src="@drawable/app_icon_104"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:paddingLeft="@dimen/main_menu_horizontal_margin"
+            android:paddingRight="@dimen/main_menu_horizontal_margin"
+            android:paddingBottom="@dimen/main_menu_bottom_margin"
+            android:paddingTop="@dimen/main_menu_top_margin">
+
+            <include android:id="@+id/compositeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="@dimen/main_menu_title_spacing"
+                layout="@layout/button" />
+
+            <include android:id="@+id/composite0"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                layout="@layout/button"/>
+            <include android:id="@+id/composite1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                layout="@layout/button"/>
+            <include android:id="@+id/composite2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                layout="@layout/button"/>
+            <include android:id="@+id/composite3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                layout="@layout/button"/>
+        </LinearLayout>
+
+       <!-- <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" /> -->
+
+    </LinearLayout>
+
+
+</FrameLayout>

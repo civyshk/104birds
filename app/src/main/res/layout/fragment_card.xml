@@ -1,0 +1,230 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:padding="0dp"
+    android:orientation="vertical"
+    tools:context="net.project104.civyshkbirds.ActivityCards">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/button_background">
+
+        <View
+            android:tag="line_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/button_top_line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView android:id="@+id/tvLatinName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/title_spacing"
+                android:layout_marginLeft="@dimen/title_spacing"/>
+
+            <TextView android:id="@+id/tvCommonName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/title_spacing"
+                android:layout_marginLeft="@dimen/title_spacing"/>
+
+        </LinearLayout>
+
+        <View
+            android:tag="line_bot"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/button_bot_line"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        android:background="@color/half_transparent_background">
+
+        <View
+            android:tag="line_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/button_top_line"/>
+
+        <net.project104.civyshkbirds.ViewPagerCustom
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/view_pager_protruding_left"
+            android:paddingRight="@dimen/view_pager_protruding_right"/>
+
+        <include android:id="@+id/compositePlayer"
+            layout="@layout/composite_player" />
+
+        <View
+            android:tag="line_bot"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_width"
+            android:background="@color/button_bot_line"/>
+
+    </LinearLayout>
+
+    <!--
+    <LinearLayout android:id="@+id/compositePlayer"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="3dp"
+        android:orientation="horizontal">
+
+        <FrameLayout android:id="@+id/compositePlayPause"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button android:tag="button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:layout_gravity="center"/>
+
+            <ImageViewScaling android:tag="picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:layout_margin="3dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_play_pause"/>
+
+        </FrameLayout>
+
+        <FrameLayout android:id="@+id/compositeStop"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button android:tag="button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:layout_gravity="center"/>
+
+            <ImageViewScaling android:tag="picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_margin="3dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_stop"/>
+
+        </FrameLayout>
+
+        <FrameLayout android:id="@+id/compositePlaylistPrev"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button android:tag="button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:layout_gravity="center"/>
+
+            <ImageViewScaling android:tag="picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:layout_margin="3dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_playlist_prev"/>
+
+        </FrameLayout>
+
+        <FrameLayout android:id="@+id/compositePlaylistNext"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button android:tag="button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:layout_gravity="center"/>
+
+            <ImageViewScaling android:tag="picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:layout_margin="3dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_playlist_next"/>
+
+        </FrameLayout>
+
+        <FrameLayout android:id="@+id/compositeVolUp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button android:tag="button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:layout_gravity="center"/>
+
+            <ImageViewScaling android:tag="picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_margin="3dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_vol_up"/>
+
+        </FrameLayout>
+
+        <FrameLayout android:id="@+id/compositeVolDown"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button android:tag="button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:layout_gravity="center"/>
+
+            <ImageViewScaling android:tag="picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_margin="3dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_vol_down"/>
+
+        </FrameLayout>
+
+        <include android:id="@+id/compositeVolume"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            layout="@layout/meter_vertical" />
+
+    </LinearLayout>
+
+-->
+
+</LinearLayout>

@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:orientation="horizontal"
+    tools:context="net.project104.civyshkbirds.FragmentPictureCheep">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="@integer/game_picture_picture_weight">
+
+         <net.project104.civyshkbirds.ImageViewScaling
+            android:id="@+id/imgQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/line_width"
+            android:layout_margin="@dimen/game_picture_margin"
+            android:background="@color/image_border"
+            android:scaleType="fitCenter"
+            android:clickable="true"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="@integer/game_picture_answers_weight"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/game_picture_answers_margin_top"
+            android:layout_marginBottom="@dimen/game_picture_answers_margin_bottom">
+
+            <include android:id="@+id/composite0"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                layout="@layout/button"/>
+            <include android:id="@+id/composite1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                layout="@layout/button"/>
+            <include android:id="@+id/composite2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                layout="@layout/button"/>
+            <include android:id="@+id/composite3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                layout="@layout/button"/>
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+
+
+</LinearLayout>

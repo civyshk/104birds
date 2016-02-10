@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:background="@color/half_transparent_background"
+    android:orientation="vertical"
+    tools:context="net.project104.civyshkbirds.FragmentPictureCheep">
+
+    <include android:id="@+id/compositePlayer"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        layout="@layout/composite_player_side_contact" />
+
+    <include android:id="@+id/composite0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        layout="@layout/button"/>
+    <include android:id="@+id/composite1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        layout="@layout/button"/>
+
+</LinearLayout>

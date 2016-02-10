@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="button_touch_duration">100</integer><!-- ms -->
+    <integer name="day_night_duration">120</integer><!-- s -->
+    <integer name="next_countdown">1400</integer><!-- ms -->
+
+    <integer name="default_user_vol">4</integer><!-- from 0 to 10 -->
+
+    <!-- game title & frame weights change in landscape -->
+    <integer name="game_title_weight_small">3</integer>
+    <integer name="game_title_weight_big">3</integer>
+    <integer name="game_frame_weight">18</integer>
+    <integer name="game_next_weight">3</integer>
+
+    <integer name="game_picture_picture_weight">4</integer>
+    <integer name="game_picture_answers_weight">1</integer>
+
+</resources>
+

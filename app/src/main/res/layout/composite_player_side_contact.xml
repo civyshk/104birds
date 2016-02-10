@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/composite_player_height"
+    android:layout_margin="3dp"
+    android:orientation="horizontal">
+
+    <FrameLayout android:id="@+id/compositePlayPause"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button android:tag="button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_gravity="center"/>
+
+        <net.project104.civyshkbirds.ImageViewScaling
+            android:tag="picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_margin="3dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_play_pause"/>
+
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/compositeStop"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button android:tag="button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_gravity="center"/>
+
+        <net.project104.civyshkbirds.ImageViewScaling
+            android:tag="picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_margin="3dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_stop"/>
+
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/compositePlaylistPrev"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button android:tag="button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_gravity="center"/>
+
+        <net.project104.civyshkbirds.ImageViewScaling
+            android:tag="picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_margin="3dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_playlist_prev"/>
+
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/compositePlaylistNext"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button android:tag="button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_gravity="center"/>
+
+        <net.project104.civyshkbirds.ImageViewScaling
+            android:tag="picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_margin="3dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_playlist_next"/>
+
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/compositeVolUp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button android:tag="button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_gravity="center"/>
+
+        <net.project104.civyshkbirds.ImageViewScaling
+            android:tag="picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_margin="3dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_vol_up"/>
+
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/compositeVolDown"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button android:tag="button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_gravity="center"/>
+
+        <net.project104.civyshkbirds.ImageViewScaling
+            android:tag="picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_margin="3dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_vol_down"/>
+
+    </FrameLayout>
+
+    <include android:id="@+id/compositeVolume"
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        layout="@layout/meter_vertical" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/player_side_contact_margin"
+        android:layout_marginRight="@dimen/player_side_contact_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recorded_by"
+            android:textSize="@dimen/font_size_small"/>
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size_small" />
+        <TextView
+            android:id="@+id/tvContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size_small"
+            android:textColorLink="@color/link" />
+    </LinearLayout>
+
+</LinearLayout>

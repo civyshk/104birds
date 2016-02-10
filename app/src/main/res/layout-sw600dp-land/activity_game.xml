@@ -1,0 +1,77 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sky_0"
+    tools:context=".GameActivity">
+<!--
+    <ImageView android:id="@+id/ivStars"
+        android:src="@drawable/stars"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.0"/>
+-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/game_horizontal_padding"
+        android:paddingRight="@dimen/game_horizontal_padding"
+        android:paddingTop="@dimen/game_vertical_padding"
+        android:paddingBottom="@dimen/game_vertical_padding" >
+
+        <LinearLayout
+            android:id="@+id/gameBar"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="@integer/game_title_weight_small"
+            android:layout_marginRight="@dimen/game_bar_horizontal_margin">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2" />
+
+            <include android:id="@+id/compositeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                layout="@layout/button" />
+
+            <FrameLayout
+                android:id="@+id/butFrameNext"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:layout_gravity="center_horizontal"
+                android:visibility="invisible">
+
+                <Button
+                    android:id="@+id/butNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="finnishFragment"
+                    android:background="@null"/>
+                <net.project104.civyshkbirds.ImageViewScaling
+                    android:id="@+id/imgNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icon_next"
+                    android:layout_gravity="center" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/gameFrame"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="@integer/game_frame_weight" >
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:installLocation="preferExternal"
+    package="net.project104.civyshkbirds" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:largeHeap="true">
+        <activity
+            android:name=".ActivityMain"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityGame"
+            android:label="@string/title_activity_game"
+            android:parentActivityName=".ActivityMain" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityMain" />
+        </activity>
+        <activity
+            android:name=".ActivityPictureInfo"
+            android:label="@string/title_activity_picture_info"
+            android:parentActivityName=".ActivityMain" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityMain" /> >
+        </activity>
+        <activity
+            android:name=".ActivityCards"
+            android:label="@string/title_activity_cards"
+            android:parentActivityName=".ActivityMain" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityMain" />
+        </activity>
+        <activity
+            android:name=".ActivityAbout"
+            android:label="@string/title_activity_cards"
+            android:parentActivityName=".ActivityMain" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityMain" />
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,15 @@
+<resources>
+    <dimen name="font_size_small">13sp</dimen>
+    <dimen name="font_size_button">18sp</dimen>
+
+    <dimen name="image_margin">3dp</dimen>
+
+    <dimen name="button_icon_size">36dp</dimen>
+
+    <dimen name="cc_icon_size">34dp</dimen>
+    <dimen name="cc_icon_margin_vertical">4dp</dimen>
+    <dimen name="picture_info_spacing">6dp</dimen>
+
+    <dimen name="grid_vertical_spacing">12dp</dimen>
+
+</resources>

@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:orientation="vertical"
+    tools:context="net.project104.civyshkbirds.FragmentName">
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginRight="3dp"
+        android:layout_marginLeft="3dp"
+        android:textSize="@dimen/font_size_button"
+        android:background="@color/half_transparent_background"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal">
+
+        <include android:id="@+id/composite0"
+            layout="@layout/button_image"/>
+
+        <include android:id="@+id/composite1"
+            layout="@layout/button_image"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="3dp"
+        android:orientation="horizontal">
+
+        <include android:id="@+id/composite2"
+            layout="@layout/button_image"/>
+
+        <include android:id="@+id/composite3"
+            layout="@layout/button_image"/>
+
+    </LinearLayout>
+
+</LinearLayout>

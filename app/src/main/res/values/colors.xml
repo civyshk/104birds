@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="button_pressed">#f955</color>
+    <color name="button_focused">#f595</color>
+    <color name="button">#0000</color>
+    <color name="button_top_line">#ffeeeeee</color>
+    <color name="button_bot_line">#ff222222</color>
+    <color name="button_top_bg">#7feeeeee</color>
+    <color name="button_bot_bg">#7f4c4c4c</color>
+    <color name="button_top_bg_pressed">#ffeeeeee</color>
+    <color name="button_bot_bg_pressed">#ff4c4c4c</color>
+    <color name="image_border">#ff272727</color>
+    <color name="image_border_pressed">#ffc3c3c3</color>
+    <color name="meter_background">#ffc3c3c3</color>
+    <color name="meter_foreground">#ffc33177</color>
+
+    <color name="half_transparent_background">#80999999</color>
+
+    <color name="sky_0">#6e78ff</color>
+    <color name="sky_10">#6e78ff</color>
+    <color name="sky_25">#b45a28</color>
+    <color name="sky_30">#781414</color>
+    <color name="sky_35">#3c0f0a</color>
+    <color name="sky_45">#140514</color>
+    <color name="sky_55">#0f0514</color>
+    <color name="sky_65">#320a00</color>
+    <color name="sky_70">#6f0f10</color>
+    <color name="sky_75">#b45a28</color>
+    <color name="sky_85">#6e78ff</color>
+    <color name="sky_100">#6e78ff</color>
+
+    <color name="transparent">#0000</color>
+
+    <color name="link">#fff</color>
+
+</resources>
+

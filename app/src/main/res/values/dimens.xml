@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_size_small">11sp</dimen>
+    <dimen name="font_size_button">16sp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="logo_main_spacing">16dp</dimen>
+
+    <dimen name="main_menu_horizontal_margin">16dp</dimen>
+    <dimen name="main_menu_bottom_margin">16dp</dimen>
+    <dimen name="main_menu_top_margin">16dp</dimen>
+    <dimen name="main_menu_title_spacing">16dp</dimen>
+
+
+    <dimen name="game_horizontal_padding">@dimen/activity_horizontal_margin</dimen>
+    <dimen name="game_vertical_padding">@dimen/activity_vertical_margin</dimen>
+    <dimen name="game_bar_horizontal_margin">0dp</dimen>
+    <dimen name="game_bar_margin_top">0dp</dimen>
+    <dimen name="game_bar_margin_bottom">8dp</dimen>
+    <dimen name="game_next_margin">12dp</dimen>
+
+    <dimen name="game_picture_margin">@dimen/line_width</dimen>
+
+    <dimen name="text_padding">3dp</dimen>
+    <dimen name="title_spacing">3sp</dimen>
+
+    <dimen name="button_icon_size">20dp</dimen>
+    <dimen name="button_big_icon_size">60dp</dimen>
+    <dimen name="button_icon_margin">7dp</dimen>
+    <dimen name="button_big_icon_margin">5dp</dimen>
+    <dimen name="image_button_icon_size">60dp</dimen>
+
+    <dimen name="about_app_icon_size">120dp</dimen>
+    <dimen name="about_info_spacing">12dp</dimen>
+
+    <dimen name="cc_icon_size">18dp</dimen>
+    <dimen name="cc_icon_margin_horizontal">8dp</dimen>
+    <dimen name="cc_icon_margin_vertical">2dp</dimen>
+    <dimen name="picture_info_spacing">5dp</dimen>
+
+    <dimen name="line_width">3dp</dimen>
+
+    <dimen name="composite_player_height">90dp</dimen>
+    <dimen name="composite_player_block_height">90dp</dimen>
+    <dimen name="composite_player_block_width">90dp</dimen>
+    <dimen name="player_side_contact_margin">4dp</dimen>
+    <dimen name="player_contact_margin">8dp</dimen>
+    <dimen name="player_contact_spacing">6sp</dimen>
+
+    <dimen name="grid_column_width">120dp</dimen>
+    <dimen name="grid_row_height">120dp</dimen>
+    <dimen name="grid_vertical_spacing">14dp</dimen>
+    <dimen name="grid_horizontal_spacing">3dp</dimen>
+
+    <dimen name="view_pager_page_margin">18dp</dimen>
+    <dimen name="view_pager_protruding_left">24dp</dimen>
+    <dimen name="view_pager_protruding_right">24dp</dimen>
+
+</resources>

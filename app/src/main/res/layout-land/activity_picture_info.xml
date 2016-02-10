@@ -1,0 +1,130 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="net.project104.civyshkbirds.ActivityPictureInfo">
+<!--
+    <ImageView android:id="@+id/ivStars"
+        android:src="@drawable/stars"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.0"/>
+-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="@integer/card_info_left_weight"
+            android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:background="@drawable/button_background">
+
+                    <View
+                        android:tag="line_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_width"
+                        android:background="@color/button_top_line"/>
+
+                    <TextView android:id="@+id/tvLatinName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+
+                    <TextView android:id="@+id/tvCommonName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+
+                    <View
+                        android:tag="line_bot"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_width"
+                        android:background="@color/button_bot_line"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/half_transparent_background">
+
+                    <View
+                        android:tag="line_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_width"
+                        android:background="@color/button_top_line"/>
+
+                    <TextView android:id="@+id/tvAuthor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColorLink="@color/link"
+                        android:layout_marginBottom="@dimen/picture_info_spacing"/>
+
+                    <TextView android:id="@+id/tvWikimediaPicture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColorLink="@color/link"
+                        android:layout_marginBottom="@dimen/picture_info_spacing"/>
+
+                    <include android:id="@+id/compositeLicence"
+                        layout="@layout/composite_licence" />
+
+                    <View
+                        android:tag="line_bot"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_width"
+                        android:background="@color/button_bot_line"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <net.project104.civyshkbirds.ImageViewScaling
+            android:id="@+id/imgPicture"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="@integer/card_info_right_weight"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_gravity="center"
+            android:padding="3dp"
+            android:background="@color/image_border"
+            android:scaleType="fitCenter"
+            android:clickable="true"/>
+
+    </LinearLayout>
+
+
+
+</FrameLayout>
