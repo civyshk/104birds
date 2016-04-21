@@ -1,7 +1,17 @@
 package net.project104.civyshkbirds;
 
-/**
- * Created by besokare on 20/04/16.
- */
-public class NetPlayer {
+import android.view.ViewGroup;
+
+import net.project104.swartznetlibrary.NetNode;
+
+import java.lang.ref.WeakReference;
+import java.net.InetAddress;
+
+public class NetPlayer extends NetNode {
+    private WeakReference<ViewGroup> mWidget;
+
+    public NetPlayer(InetAddress address, int port){
+        super(address, port);
+    }
+
 }
