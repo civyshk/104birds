@@ -50,11 +50,11 @@ public class ActivityMain extends ActivityAnimation {
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            for(int i=0; i< bigIconAnimators.length; i++){
-                if(bigIconAnimators[i] != null){
-                    bigIconAnimators[i].cancel();
+            for (ValueAnimator bigIconAnimator : bigIconAnimators) {
+                if (bigIconAnimator != null) {
+                    bigIconAnimator.cancel();
                     //Remove listeners, which hold a reference to view (possible mem leak)
-                    bigIconAnimators[i].removeAllUpdateListeners();
+                    bigIconAnimator.removeAllUpdateListeners();
                 }
             }
             launchActivity(v);
