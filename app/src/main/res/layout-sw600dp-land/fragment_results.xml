@@ -17,14 +17,14 @@
     <View
         android:tag="line_top"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/line_width"
+        android:layout_height="@dimen/line_width_top"
         android:background="@color/button_top_line"
         android:layout_alignParentTop="true"/>
 
     <View
         android:tag="line_bot"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/line_width"
+        android:layout_height="@dimen/line_width_bottom"
         android:background="@color/button_bot_line"
         android:layout_alignParentBottom="true"/>
 

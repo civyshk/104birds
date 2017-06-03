@@ -11,8 +11,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import net.project104.civyshkbirds.R;
-
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,7 +69,7 @@ public class AdapterCard extends BaseAdapter {
             layout.setPadding(0, 0, 0, 0);
             layout.setBackgroundResource(R.color.transparent);
 
-            int p = (int) res.getDimension(R.dimen.line_width);
+            int p = (int) res.getDimension(R.dimen.line_width_top);
             frame = new FrameLayout(c);
             frame.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 3.f));
             frame.setPadding(p, p, p, p);
@@ -83,7 +81,7 @@ public class AdapterCard extends BaseAdapter {
 
             textView = new TextView(c);
             textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0.f));
-            //textView.setBackgroundResource(R.drawable.button_background);
+            textView.setBackgroundResource(R.drawable.button_background);
             textView.setGravity(View.TEXT_ALIGNMENT_GRAVITY);
 
             frame.addView(imageView);
@@ -127,9 +125,4 @@ public class AdapterCard extends BaseAdapter {
             }
         }
     }
-/*
-    public void setContext(Context c){
-        context = c;
-    }
-*/
 }

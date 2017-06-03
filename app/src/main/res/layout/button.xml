@@ -16,6 +16,7 @@
         android:tag="icon"
         android:layout_width="@dimen/button_icon_size"
         android:layout_height="@dimen/button_icon_size"
+        android:elevation="40px"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_margin="@dimen/button_icon_margin"/>
@@ -23,14 +24,16 @@
     <View
         android:tag="line_top"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/line_width"
+        android:layout_height="@dimen/line_width_top"
+        android:elevation="60dp"
         android:background="@color/button_top_line"
         android:layout_alignParentTop="true"/>
 
     <View
         android:tag="line_bot"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/line_width"
+        android:layout_height="@dimen/line_width_bottom"
+        android:elevation="60dp"
         android:background="@color/button_bot_line"
         android:layout_alignParentBottom="true"/>
 

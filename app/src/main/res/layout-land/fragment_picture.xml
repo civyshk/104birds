@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="@dimen/line_width"
+                android:padding="@dimen/line_width_top"
                 android:layout_marginBottom="@dimen/game_picture_margin_bottom"
                 android:background="@color/image_border"
                 android:scaleType="fitCenter"

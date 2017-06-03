@@ -1,6 +1,6 @@
 package net.project104.civyshkbirds;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -8,9 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import net.project104.civyshkbirds.R;
-
 
 public class FragmentResults extends Fragment {
 

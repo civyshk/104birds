@@ -3,9 +3,9 @@
     android:installLocation="preferExternal"
     package="net.project104.civyshkbirds" >
 
-    <uses-permission android:required="true" android:name="android.permission.INTERNET"/>
-    <uses-permission android:required="true" android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:required="true" android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <!--<uses-permission android:required="true" android:name="android.permission.INTERNET"/>-->
+    <!--<uses-permission android:required="true" android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <!--<uses-permission android:required="true" android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>-->
 
     <application
         android:allowBackup="true"
@@ -18,10 +18,10 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ActivityGame"
             android:label="@string/title_activity_game"
@@ -30,6 +30,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ActivityMain" />
         </activity>
+
         <activity
             android:name=".ActivityPictureInfo"
             android:label="@string/title_activity_picture_info"
@@ -38,6 +39,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ActivityMain" /> >
         </activity>
+
         <activity
             android:name=".ActivityCards"
             android:label="@string/title_activity_cards"
@@ -46,6 +48,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ActivityMain" />
         </activity>
+
         <activity
             android:name=".ActivityAbout"
             android:label="@string/title_activity_cards"

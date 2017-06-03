@@ -1,10 +1,11 @@
 <resources>
 
     <string name="app_name">104 Birds</string>
-    <string name="preferences_file_name">net.project104.civyshkbirds.preferences</string>
-    <string name="preferences_user_vol">UserVol</string>
-    <string name="preferences_only_family">OnlyFamily</string>
-    <string name="preferences_latin_names">LatinNames</string>
+    <string name="preferences_file_name" translatable="false">net.project104.civyshkbirds.preferences</string>
+    <string name="preferences_user_vol" translatable="false">UserVol</string>
+    <string name="preferences_only_family" translatable="false">OnlyFamily</string>
+    <string name="preferences_latin_names" translatable="false">LatinNames</string>
+    <string name="preferences_background_stars" translatable="false">BackgroundStars</string>
 
     <string name="main_title">@string/app_name</string>
     <string name="title_activity_game">Solve!</string>
@@ -46,5 +47,7 @@
     <string name="about_author_header">Developer</string>
     <string name="about_audio_header">Contributors to audio samples</string>
     <string name="about_pictures_header">Contributors to pictures</string>
+    <string name="menu_item_show_stars">Background with stars</string>
+    <string name="menu_item_condensed_show_stars">Stars</string>
 
 </resources>

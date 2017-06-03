@@ -8,16 +8,14 @@
     android:paddingTop="0dp"
     android:paddingBottom="0dp"
     android:background="@color/sky_0"
-    tools:context=".GameActivity">
-
-    <!--
+    tools:context=".ActivityGame">
 
     <ImageView android:id="@+id/ivStars"
         android:src="@drawable/stars"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:alpha="0.0"/> -->
+        android:alpha="0.0"/>
 
     <LinearLayout
         android:orientation="vertical"

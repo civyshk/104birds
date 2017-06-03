@@ -1,14 +1,15 @@
 package net.project104.civyshkbirds;
 
 import android.annotation.SuppressLint;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -17,20 +18,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import net.project104.civyshkbirds.R;
-
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 public class ActivityGame extends ActivityAnimation {
+    private static final String TAG = ActivityGame.class.getSimpleName();
 
     Map<String, Bird> birdsByName;
     Map<String, List<Bird>> birdsByFamily;
 
     static final Random rand;
+
     static {
         rand = new Random();
     }
@@ -50,6 +53,7 @@ public class ActivityGame extends ActivityAnimation {
         ComboPicture comboPicture;
         ComboCheep comboCheep;
         ComboName comboName;
+        Set<Bird> questionedBirds = new HashSet<>(numQuestions);
 
         GameInfo() {
             numQuestions = 10;
@@ -60,9 +64,18 @@ public class ActivityGame extends ActivityAnimation {
             resetCombos();
         }
 
-        public void score() {            correctAnswers++;        }
-        public void advanceIndex() {            questionIndex++;        }
-        public void resetIndex() {            questionIndex = 0;        }
+        public void score() {
+            correctAnswers++;
+        }
+
+        public void advanceIndex() {
+            questionIndex++;
+        }
+
+        public void resetGame() {
+            questionIndex = 0;
+            questionedBirds.clear();
+        }
 
         public void setComboPicture(ComboPicture combo) {
             comboPicture = combo;
@@ -86,6 +99,14 @@ public class ActivityGame extends ActivityAnimation {
             comboPicture = null;
             comboCheep = null;
             comboName = null;
+        }
+
+        public void addQuestionedBird(Bird questionBird) {
+            questionedBirds.add(questionBird);
+        }
+
+        public boolean isBirdAlreadyQuestioned(Bird bird){
+            return questionedBirds.contains(bird);
         }
     }
 
@@ -123,7 +144,7 @@ public class ActivityGame extends ActivityAnimation {
         if (savedInstanceState == null) {
             bundle = getIntent().getExtras();
             canAdvanceToNextFragment = false;
-            fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction = getSupportFragmentManager().beginTransaction();
         } else {
             bundle = savedInstanceState;
             canAdvanceToNextFragment = bundle.getBoolean("CanAdvance");
@@ -157,14 +178,14 @@ public class ActivityGame extends ActivityAnimation {
         ivNext = (ImageView) findViewById(R.id.imgNext);
         findViewById(R.id.butNext).setOnTouchListener(buttonStateListener);
 
-        if(!ActivityMain.areTranslationsAvailable(getResources())) {
+        if (!ActivityMain.areTranslationsAvailable(getResources())) {
             SharedPreferences.Editor preferences =
                     getSharedPreferences(getString(R.string.preferences_file_name), Context.MODE_PRIVATE).edit();
             preferences.putBoolean(getString(R.string.preferences_latin_names), true);
-            preferences.commit();
+            preferences.apply();
         }
 
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             Bundle bundleToFragment = new Bundle();
             Fragment gameFragment = null;
             if (currentGameInfo.questionIndex == currentGameInfo.numQuestions) {
@@ -262,15 +283,15 @@ public class ActivityGame extends ActivityAnimation {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_activity, menu);
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
         menu.findItem(R.id.menu_item_latin_names).setVisible(ActivityMain.areTranslationsAvailable(getResources()));
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu){
+    public boolean onPrepareOptionsMenu(Menu menu) {
         ActivityMain.checkMenuItems(this, menu);
-        return true;
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -278,31 +299,26 @@ public class ActivityGame extends ActivityAnimation {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-
-        int id = item.getItemId();
-
-        if (id == R.id.menu_item_difficult) {
-            boolean isHard = !item.isChecked();
-            currentGameInfo.onlyFamily = isHard;
-            item.setChecked(isHard);
-            SharedPreferences.Editor preferences =
-                    getSharedPreferences(getString(R.string.preferences_file_name),
-                            Context.MODE_PRIVATE).edit();
-            preferences.putBoolean(getString(R.string.preferences_only_family), isHard);
-            preferences.commit();
-            return true;
-        }else if(id == R.id.menu_item_latin_names){
-            boolean isLatin = !item.isChecked();
-            item.setChecked(isLatin);
-            SharedPreferences.Editor preferences =
-                    getSharedPreferences(getString(R.string.preferences_file_name),
-                            Context.MODE_PRIVATE).edit();
-            preferences.putBoolean(getString(R.string.preferences_latin_names), isLatin);
-            preferences.commit();
-            return true;
+        SharedPreferences.Editor preferences =
+                getSharedPreferences(getString(R.string.preferences_file_name),
+                        Context.MODE_PRIVATE).edit();
+        switch (item.getItemId()) {
+            case R.id.menu_item_difficult:
+                boolean isHard = !item.isChecked();
+                currentGameInfo.onlyFamily = isHard;
+                item.setChecked(isHard);
+                preferences.putBoolean(getString(R.string.preferences_only_family), isHard);
+                preferences.apply();
+                return true;
+            case R.id.menu_item_latin_names:
+                boolean isLatin = !item.isChecked();
+                item.setChecked(isLatin);
+                preferences.putBoolean(getString(R.string.preferences_latin_names), isLatin);
+                preferences.apply();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     private List<Bird> getRandomBirds(int n, SelectionType selectionType) {
@@ -361,20 +377,20 @@ public class ActivityGame extends ActivityAnimation {
         return selectedBirds;
     }
 
-    private boolean areEnoughBirds(String family, int n){
+    private boolean areEnoughBirds(String family, int n) {
         boolean isLatin = getSharedPreferences(getString(R.string.preferences_file_name), Context.MODE_PRIVATE).
                 getBoolean(getString(R.string.preferences_latin_names), false);
-        if(isLatin) {
+        if (isLatin) {
             return birdsByFamily.get(family).size() >= n;
         }
         int numberNamedBirds = 0;
-        int i=0;
+        int i = 0;
         boolean areEnough = false;
         List<Bird> birds = birdsByFamily.get(family);
-        while(!areEnough && i < birds.size()){
-            if(isNamedBird(birds.get(i))){
+        while (!areEnough && i < birds.size()) {
+            if (isNamedBird(birds.get(i))) {
                 numberNamedBirds++;
-                if(numberNamedBirds >= n){
+                if (numberNamedBirds >= n) {
                     areEnough = true;
                 }
             }
@@ -383,18 +399,18 @@ public class ActivityGame extends ActivityAnimation {
         return areEnough;
     }
 
-    private boolean isNamedBird(Bird bird){
+    private boolean isNamedBird(Bird bird) {
         Resources res = getResources();
         boolean isLatin = getSharedPreferences(getString(R.string.preferences_file_name), Context.MODE_PRIVATE).
                 getBoolean(getString(R.string.preferences_latin_names), false);
-        if(isLatin) {
+        if (isLatin) {
             return true;
-        }else{
+        } else {
             boolean found;
-            try{
+            try {
                 res.getString(res.getIdentifier(ActivityMain.androidize(bird.latinName), "string", getPackageName()));
                 found = true;
-            }catch(Resources.NotFoundException e){
+            }catch(Resources.NotFoundException e) {
                 found = false;
             }
             return found;
@@ -405,17 +421,24 @@ public class ActivityGame extends ActivityAnimation {
         if (currentGameInfo.comboPicture != null) {
             return currentGameInfo.comboPicture;
         } else {
-            List<Bird> selectedBirds = getRandomBirds(4, currentGameInfo.onlyFamily ? SelectionType.PICTURES_SAME_FAMILY : SelectionType.PICTURES_ANY_FAMILY);
+            while(true) {
+                List<Bird> selectedBirds = getRandomBirds(4, currentGameInfo.onlyFamily ? SelectionType.PICTURES_SAME_FAMILY : SelectionType.PICTURES_ANY_FAMILY);
 
-            ComboPicture combo = new ComboPicture();
-            for (Bird bird : selectedBirds) {
-                combo.addAnswer(getDisplayName(bird.latinName));
+                ComboPicture combo = new ComboPicture();
+                for (Bird bird : selectedBirds) {
+                    combo.addAnswer(getDisplayName(bird.latinName));
+                }
+                int correctAnswer = rand.nextInt(selectedBirds.size());
+                Bird questionBird = selectedBirds.get(correctAnswer);
+
+                if (!currentGameInfo.isBirdAlreadyQuestioned(questionBird)) {
+                    combo.setCorrectAnswer(correctAnswer);
+                    combo.setPicture(selectedBirds.get(correctAnswer).getRandomPicture());
+                    currentGameInfo.addQuestionedBird(questionBird);
+                    currentGameInfo.setComboPicture(combo);
+                    return combo;
+                }
             }
-            int correctAnswer = rand.nextInt(selectedBirds.size());
-            combo.setCorrectAnswer(correctAnswer);
-            combo.setPicture(selectedBirds.get(correctAnswer).getRandomPicture());
-            currentGameInfo.setComboPicture(combo);
-            return combo;
         }
     }
 
@@ -423,17 +446,25 @@ public class ActivityGame extends ActivityAnimation {
         if (currentGameInfo.comboName != null) {
             return currentGameInfo.comboName;
         } else {
-            List<Bird> selectedBirds = getRandomBirds(4, currentGameInfo.onlyFamily ? SelectionType.PICTURES_SAME_FAMILY : SelectionType.PICTURES_ANY_FAMILY);
+            while(true) {
+                List<Bird> selectedBirds = getRandomBirds(4, currentGameInfo.onlyFamily ? SelectionType.PICTURES_SAME_FAMILY : SelectionType.PICTURES_ANY_FAMILY);
 
-            ComboName combo = new ComboName();
-            for (Bird bird : selectedBirds) {
-                combo.addPicture(bird.getRandomPicture());
+                ComboName combo = new ComboName();
+                for (Bird bird : selectedBirds) {
+                    combo.addPicture(bird.getRandomPicture());
+                }
+
+                int correctAnswer = rand.nextInt(selectedBirds.size());
+                Bird questionBird = selectedBirds.get(correctAnswer);
+
+                if(!currentGameInfo.isBirdAlreadyQuestioned(questionBird)){
+                    combo.setCorrectAnswer(correctAnswer);
+                    combo.setQuestion(getDisplayName(questionBird.latinName));
+                    currentGameInfo.addQuestionedBird(questionBird);
+                    currentGameInfo.setComboName(combo);
+                    return combo;
+                }
             }
-            int correctAnswer = rand.nextInt(selectedBirds.size());
-            combo.setCorrectAnswer(correctAnswer);
-            combo.setQuestion(getDisplayName(selectedBirds.get(correctAnswer).latinName));
-            currentGameInfo.setComboName(combo);
-            return combo;
         }
     }
 
@@ -441,30 +472,37 @@ public class ActivityGame extends ActivityAnimation {
         if (currentGameInfo.comboCheep != null) {
             return currentGameInfo.comboCheep;
         } else {
-            List<Bird> selectedBirds = getRandomBirds(2, SelectionType.CHEEPS);
+            while(true){
+                List<Bird> selectedBirds = getRandomBirds(2, SelectionType.CHEEPS);
 
-            ComboCheep combo = new ComboCheep();
-            for (Bird bird : selectedBirds) {
-                combo.addAnswer(getDisplayName(bird.latinName));
+                ComboCheep combo = new ComboCheep();
+                for (Bird bird : selectedBirds) {
+                    combo.addAnswer(getDisplayName(bird.latinName));
+                }
+                int correctAnswer = rand.nextInt(selectedBirds.size());
+                Bird questionBird = selectedBirds.get(correctAnswer);
+
+                if (!currentGameInfo.isBirdAlreadyQuestioned(questionBird)) {
+                    combo.setCorrectAnswer(correctAnswer);
+                    combo.setCheep(selectedBirds.get(correctAnswer).getRandomCheep());
+                    currentGameInfo.addQuestionedBird(questionBird);
+                    currentGameInfo.setComboCheep(combo);
+                    return combo;
+                }
             }
-            int correctAnswer = rand.nextInt(selectedBirds.size());
-            combo.setCorrectAnswer(correctAnswer);
-            combo.setCheep(selectedBirds.get(correctAnswer).getRandomCheep());
-            currentGameInfo.setComboCheep(combo);
-            return combo;
         }
     }
 
     private String getDisplayName(String latinName) {
         boolean isLatin = getSharedPreferences(getString(R.string.preferences_file_name), Context.MODE_PRIVATE).
                 getBoolean(getString(R.string.preferences_latin_names), false);
-        if(isLatin){
+        if (isLatin) {
             return latinName;
         }
         Resources res = getResources();
         try {
             return res.getString(res.getIdentifier(ActivityMain.androidize(latinName), "string", getPackageName()));
-        } catch (Resources.NotFoundException e) {
+        }catch(Resources.NotFoundException e) {
             return latinName;
         }
     }
@@ -504,10 +542,10 @@ public class ActivityGame extends ActivityAnimation {
                 bundle.putInt("UserVolume", getCurrentUserVol());
                 nextFragment.setArguments(bundle);
             } else {
-                assert false : "Unknown game type";
+                Log.e(TAG, "Unknown game type");
             }
 
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.gameFrame, nextFragment, "gameFragment");
             hideNextButton();
             currentFragment = nextFragment;
@@ -519,14 +557,14 @@ public class ActivityGame extends ActivityAnimation {
             bundle.putInt("CorrectAnswers", currentGameInfo.correctAnswers);
             bundle.putInt("NumQuestions", currentGameInfo.numQuestions);
             nextFragment.setArguments(bundle);
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.gameFrame, nextFragment, "gameFragment");
             hideNextButton();
             currentFragment = nextFragment;
             fragmentTransaction.commit();
             writeInfo();
         } else {
-            currentGameInfo.resetIndex();
+            currentGameInfo.resetGame();
             Intent intent = new Intent(this, ActivityMain.class);
             intent.putExtra("PlayTime", getAnimatorPlayTime());
             //This flag makes ActivityMain be the only one, so that BackButton will exit app.
@@ -572,13 +610,13 @@ public class ActivityGame extends ActivityAnimation {
         butTitle.setText(title);
     }
 
-    private void setTitleWeight(String size){
+    private void setTitleWeight(String size) {
         View gameBar = findViewById(R.id.gameBar);
-        if(gameBar == null){
+        if (gameBar == null) {
             return;
         }
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) gameBar.getLayoutParams();
-        switch(size){
+        switch (size) {
             case "small":
                 params.weight = getResources().getInteger(R.integer.game_title_weight_small);
                 break;

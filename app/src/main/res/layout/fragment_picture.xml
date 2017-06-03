@@ -40,7 +40,7 @@
         android:layout_weight="@integer/game_picture_picture_weight"
         android:layout_gravity="center"
         android:layout_margin="@dimen/game_picture_margin"
-        android:padding="@dimen/line_width"
+        android:padding="@dimen/line_width_top"
         android:background="@color/image_border"
         android:scaleType="fitCenter"
         android:clickable="true"/>

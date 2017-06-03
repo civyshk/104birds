@@ -20,7 +20,7 @@
     <dimen name="game_bar_margin_bottom">8dp</dimen>
     <dimen name="game_next_margin">12dp</dimen>
 
-    <dimen name="game_picture_margin">@dimen/line_width</dimen>
+    <dimen name="game_picture_margin">@dimen/line_width_top</dimen>
 
     <dimen name="text_padding">3dp</dimen>
     <dimen name="title_spacing">3sp</dimen>
@@ -39,7 +39,8 @@
     <dimen name="cc_icon_margin_vertical">2dp</dimen>
     <dimen name="picture_info_spacing">5dp</dimen>
 
-    <dimen name="line_width">3dp</dimen>
+    <dimen name="line_width_top">3dp</dimen>
+    <dimen name="line_width_bottom">4dp</dimen>
 
     <dimen name="composite_player_height">90dp</dimen>
     <dimen name="composite_player_block_height">90dp</dimen>

@@ -19,7 +19,7 @@
         <View
             android:tag="line_top"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/line_width"
+            android:layout_height="@dimen/line_width_top"
             android:background="@color/button_top_line"/>
 
         <LinearLayout
@@ -48,14 +48,15 @@
         <View
             android:tag="line_bot"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/line_width"
+            android:layout_height="@dimen/line_width_bottom"
             android:background="@color/button_bot_line"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0px"
+        android:layout_weight="1"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:orientation="vertical"
         android:background="@color/half_transparent_background">
@@ -63,7 +64,7 @@
         <View
             android:tag="line_top"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/line_width"
+            android:layout_height="@dimen/line_width_top"
             android:background="@color/button_top_line"/>
 
         <net.project104.civyshkbirds.ViewPagerCustom
@@ -80,8 +81,60 @@
         <View
             android:tag="line_bot"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/line_width"
+            android:layout_height="@dimen/line_width_bottom"
             android:background="@color/button_bot_line"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/butFramePrev"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical">
+
+            <Button
+                android:id="@+id/butCardPrev"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"/>
+            <net.project104.civyshkbirds.ImageViewScaling
+                android:id="@+id/imgCardPrev"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_next"
+                android:rotationY="180"
+                android:layout_gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/butFrameNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical">
+
+            <Button
+                android:id="@+id/butCardNext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"/>
+
+            <net.project104.civyshkbirds.ImageViewScaling
+                android:id="@+id/imgCardNext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_next"
+                android:layout_gravity="center" />
+        </FrameLayout>
 
     </LinearLayout>
 

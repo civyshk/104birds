@@ -1,6 +1,6 @@
 package net.project104.civyshkbirds;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -15,7 +15,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import net.project104.civyshkbirds.R;
-
 
 public class FragmentName extends Fragment {
     ComboName combo;
@@ -107,8 +106,8 @@ public class FragmentName extends Fragment {
             //butAnswers[i].setOnLongClickListener(longListener);
             registerForContextMenu(butAnswers[i]);
             imagesLoader.addImage(pictureAnswers[i], combo.getAnswer(i).getID(), false);
+//            pictureAnswers[i].setImageResource(combo.getAnswer(i).getID());
         }
-
         imagesLoader.imageViews.get(0).getViewTreeObserver().addOnPreDrawListener(imagesLoader);
 
         if(combo.selectedAnswer >= 0){

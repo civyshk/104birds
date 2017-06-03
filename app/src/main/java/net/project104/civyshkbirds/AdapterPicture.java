@@ -57,7 +57,7 @@ public class AdapterPicture extends PagerAdapter {
         params.gravity = Gravity.CENTER;
 
         imageView.setLayoutParams(params);
-        int p = (int) context.getResources().getDimension(R.dimen.line_width);
+        int p = (int) context.getResources().getDimension(R.dimen.line_width_top);
         imageView.setPadding(p, p, p, p);
         imageView.setBackgroundResource(R.color.image_border);
         imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);

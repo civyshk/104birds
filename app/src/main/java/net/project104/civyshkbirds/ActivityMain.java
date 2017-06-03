@@ -47,7 +47,7 @@ public class ActivityMain extends ActivityAnimation {
     boolean newActivityLaunched = false;
     ValueAnimator[] bigIconAnimators;
 
-    View.OnClickListener listener = new View.OnClickListener() {
+    View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             for (ValueAnimator bigIconAnimator : bigIconAnimators) {
@@ -80,22 +80,22 @@ public class ActivityMain extends ActivityAnimation {
     }};
 
     static class ImagesLoader implements ViewTreeObserver.OnPreDrawListener{
-        List<ImageView> imageViews;
-        List<Integer> IDs;
-        List<Boolean> delayed;
+        List<ImageView> imageViews = new ArrayList<ImageView>();
+        List<Integer> IDs = new ArrayList<Integer>();
+        List<Boolean> delayed = new ArrayList<Boolean>();
         Resources res;
         boolean donePreDraw = false;
+
         ImagesLoader(Resources res){
             this.res = res;
-            imageViews = new ArrayList<ImageView>();
-            IDs = new ArrayList<Integer>();
-            delayed = new ArrayList<Boolean>();
         }
-        public void addImage(ImageView iv, int id, boolean delayed){
+
+        void addImage(ImageView iv, int id, boolean delayed){
             this.imageViews.add(iv);
             this.IDs.add(id);
             this.delayed.add(delayed);
         }
+
         @Override
         public boolean onPreDraw(){
             if(donePreDraw){
@@ -105,7 +105,7 @@ public class ActivityMain extends ActivityAnimation {
             donePreDraw = true;
             //WEIRD: For images which are out of screen, even if I remove the listener now,
             // onPreDraw is called forever. Is it not being removed? That's why I check the boolean
-            // at the beggining. Otherwise, I get IndexOutOfBounds Exception at the live above.
+            // at the beginning. Otherwise, I get IndexOutOfBounds Exception at the live above.
 
             /*String ilid = String.valueOf(this);
             ilid = ilid.substring(ilid.length() - 8, ilid.length() - 5);
@@ -113,8 +113,9 @@ public class ActivityMain extends ActivityAnimation {
 
             String picid = String.valueOf(IDs.get(0)); picid = picid.substring(picid.length() - 2);
             Log.d(LOG_TAG, String.format("oPD %s - %s", ilid, picid));*/
-            for(int i=0; i<imageViews.size(); i++){
+            for(int i = 0; i< imageViews.size(); i++){
                 ActivityMain.setScaledImageResource(res, imageViews.get(i), IDs.get(i), delayed.get(i));
+//                imageViews.get(i).setImageResource(IDs.get(i));
             }
 
             imageViews.clear();
@@ -134,7 +135,7 @@ public class ActivityMain extends ActivityAnimation {
         }
 
         super.onCreate(savedInstanceState, bundle, R.layout.activity_main);
-        // http://stackoverflow.com/questions/4341600/how-to-prevent-multiple-instances-of-an-activity-when-it-is-launched-with-differ (ent intents)
+        // http://stackoverflow.com/questions/4341600/how-to-prevent-multiple-instances-of-an-activity-when-it-is-launched-with-differ (...ent intents)
         // Possible work around for market launches. See http://code.google.com/p/android/issues/detail?id=2373
         // for more details. Essentially, the market launches the main activity on top of other activities.
         // we never want this to happen. Instead, we check if we are the root and if not, we finish.
@@ -153,29 +154,29 @@ public class ActivityMain extends ActivityAnimation {
 
         int[] composites = {R.id.composite0, R.id.composite1, R.id.composite2, R.id.composite3};
         int[] strings = {R.string.play_pictures, R.string.play_names, R.string.play_cheeps, R.string.see_cards};
-        int[] icons = {R.drawable.icon_bird_1, R.drawable.icon_bird_2, R.drawable.icon_bird_3, R.drawable.icon_bird_4};
+        int[] icons = {R.drawable.icon_raven, R.drawable.icon_duck, R.drawable.icon_stork, R.drawable.icon_scarlet_macaw};
 
         //This ImagesLoader is a listener which sets images on views, when the size of views is ready
         ImagesLoader imagesLoader = new ImagesLoader(getResources());
 
         for(int i=0; i<4; i++) {
             View composite = findViewById(composites[i]);
-            composite.findViewWithTag("button").setOnClickListener(listener);
+            composite.findViewWithTag("button").setOnClickListener(clickListener);
             composite.findViewWithTag("button").setOnTouchListener(stateListener);
             ((Button) composite.findViewWithTag("button")).setText(strings[i]);
             imagesLoader.addImage((ImageView) composite.findViewWithTag("icon"), icons[i], false);
+//            ((ImageView) composite.findViewWithTag("icon")).setImageResource(icons[i]);
             if(HIDE_BUTTON_GAME_CHEEP && i==2){
                 composite.setVisibility(View.GONE);
             }
         }
-
         imagesLoader.imageViews.get(0).getViewTreeObserver().addOnPreDrawListener(imagesLoader);
 
+        SharedPreferences preferences = getSharedPreferences(getString(R.string.preferences_file_name), Context.MODE_PRIVATE);
         if(!areTranslationsAvailable(getResources())) {
-            SharedPreferences.Editor preferences =
-                    getSharedPreferences(getString(R.string.preferences_file_name), Context.MODE_PRIVATE).edit();
-            preferences.putBoolean(getString(R.string.preferences_latin_names), true);
-            preferences.commit();
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean(getString(R.string.preferences_latin_names), true);
+            editor.apply();
         }
 
         bigIconAnimators = new ValueAnimator[4];
@@ -191,15 +192,15 @@ public class ActivityMain extends ActivityAnimation {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_activity, menu);
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
         menu.findItem(R.id.menu_item_latin_names).setVisible(areTranslationsAvailable(getResources()));
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
         checkMenuItems(this, menu);
-        return true;
+        return super.onPrepareOptionsMenu(menu);
     }
 
     static public void checkMenuItems(Activity activity, Menu menu){
@@ -219,31 +220,22 @@ public class ActivityMain extends ActivityAnimation {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.menu_item_difficult) {
-            boolean isHard = !item.isChecked();
-            item.setChecked(isHard);
-            SharedPreferences.Editor preferences =
-                    getSharedPreferences(getString(R.string.preferences_file_name), Context.MODE_PRIVATE).edit();
-            preferences.putBoolean(getString(R.string.preferences_only_family), isHard);
-            preferences.commit();
-            return true;
-        }else if(id == R.id.menu_item_latin_names){
-            boolean isLatin = !item.isChecked();
-            item.setChecked(isLatin);
-            SharedPreferences.Editor preferences =
-                    getSharedPreferences(getString(R.string.preferences_file_name), Context.MODE_PRIVATE).edit();
-            preferences.putBoolean(getString(R.string.preferences_latin_names), isLatin);
-            preferences.commit();
-            return true;
-        }else if(id == R.id.menu_item_about){
-            Intent intent = new Intent(this, ActivityAbout.class);
-            intent.putExtra("PlayTime", getAnimatorPlayTime());
-            startActivity(intent);
-            return true;
+        SharedPreferences.Editor preferences =
+                getSharedPreferences(getString(R.string.preferences_file_name), Context.MODE_PRIVATE).edit();;
+        switch(item.getItemId()) {
+            case R.id.menu_item_difficult:
+                item.setChecked(!item.isChecked());
+                preferences.putBoolean(getString(R.string.preferences_only_family), item.isChecked());
+                preferences.apply();
+                return true;
+            case R.id.menu_item_latin_names:
+                item.setChecked(!item.isChecked());
+                preferences.putBoolean(getString(R.string.preferences_latin_names), item.isChecked());
+                preferences.apply();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     public void launchActivity(View view) {
@@ -572,25 +564,12 @@ public class ActivityMain extends ActivityAnimation {
         final int width = options.outWidth;
         int inSampleSize = 1;
 
-        //My version
+        //My version, completely refactored from Google version
         int nextInSampleSize = 2;
         while((height / nextInSampleSize) > reqHeight && (width / nextInSampleSize) > reqWidth){
             inSampleSize = nextInSampleSize;
             nextInSampleSize *= 2;
         }
-
-        /* Google version
-        if (height > reqHeight || width > reqWidth) {
-
-            final int halfHeight = height / 2;
-            final int halfWidth = width / 2;
-
-            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
-            // height and width larger than the requested height and width.
-            while ((halfHeight / inSampleSize) > reqHeight && (halfWidth / inSampleSize) > reqWidth) {
-                inSampleSize *= 2;
-            }
-        }*/
 
         return inSampleSize;
     }
@@ -673,7 +652,6 @@ public class ActivityMain extends ActivityAnimation {
         if(!delayed){
             v.setImageBitmap(decodeSampledBitmapFromResource(res, resId, width, height));
         }else{
-            //TODO
             // https://developer.android.com/intl/es/training/displaying-bitmaps/process-bitmap.html
             // http://android-developers.blogspot.com/2010/07/multithreading-for-performance.html
 
@@ -711,8 +689,7 @@ public class ActivityMain extends ActivityAnimation {
         if (imageView != null) {
             final Drawable drawable = imageView.getDrawable();
             if (drawable instanceof AsyncDrawable) {
-                final AsyncDrawable asyncDrawable = (AsyncDrawable) drawable;
-                return asyncDrawable.getBitmapDecoderTask();
+                return ((AsyncDrawable) drawable).getBitmapDecoderTask();
             }
         }
         return null;

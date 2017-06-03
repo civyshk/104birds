@@ -19,7 +19,6 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * A placeholder fragment containing a simple view.
  */

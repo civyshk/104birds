@@ -1,10 +1,10 @@
 package net.project104.civyshkbirds;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.MotionEvent;
@@ -17,7 +17,7 @@ import android.widget.TextView;
 import java.io.Serializable;
 import java.util.List;
 
-public class PlayerFragment extends Fragment{
+public class PlayerFragment extends Fragment {
 
     private enum MediaPlayerState{
         NULL, PREPARED, STARTED, PAUSED, STOPPED, PLAYBACK_COMPLETED
@@ -81,7 +81,7 @@ public class PlayerFragment extends Fragment{
             if(mVisible){
                 mustStartPlayer = savedInstanceState.getBoolean("MustStartPlayer");
                 mCheepIndex = savedInstanceState.getInt("CheepIndex");
-                mCheeps = (List) savedInstanceState.getSerializable("Cheeps");
+                mCheeps = (List<Cheep>) savedInstanceState.getSerializable("Cheeps");
 
                 setUpPlayer(mCheeps, mCheepIndex, currentUserVol, mustStartPlayer);
 
@@ -298,7 +298,7 @@ public class PlayerFragment extends Fragment{
         for(int i=0; i<playerCompositesIDs.length; i++) {
             ViewGroup compositeButton = (ViewGroup) compositePlayer.findViewById(playerCompositesIDs[i]);
             Button button = (Button) compositeButton.findViewWithTag("button");
-            //remove these listeners
+            //TODO remove these listeners
             button.setOnClickListener(listenerPlayer);
             button.setOnTouchListener(touchListenerPlayer);
         }
@@ -314,8 +314,13 @@ public class PlayerFragment extends Fragment{
 
         mCheeps = cheeps;
         if(mCheeps.size() < 2){
-            //TODO disable buttons & lower alpha to 0.5
-            hidePlaylistButtons();
+            if(this instanceof FragmentPictureCheep){
+                hidePlaylistButtons();
+            }else if(this instanceof FragmentCard) {
+                disablePlaylistButtons();
+            }else{
+                hidePlaylistButtons();
+            }
         }
         mCheepIndex = idx;
 
@@ -352,6 +357,14 @@ public class PlayerFragment extends Fragment{
         getView().findViewById(R.id.compositePlaylistNext).setVisibility(View.GONE);
     }
 
+    private void disablePlaylistButtons(){
+        getView().findViewById(R.id.compositePlaylistPrev).findViewWithTag("button").setEnabled(false);
+        getView().findViewById(R.id.compositePlaylistPrev).setAlpha(0.5f);
+
+        getView().findViewById(R.id.compositePlaylistNext).findViewWithTag("button").setEnabled(false);
+        getView().findViewById(R.id.compositePlaylistNext).setAlpha(0.5f);
+    }
+
     public void hidePlayer(){
         mVisible = false;
         View viewPlayer = getView().findViewById(R.id.layoutPlayer);
@@ -359,14 +372,14 @@ public class PlayerFragment extends Fragment{
             viewPlayer = getView().findViewById(R.id.compositePlayer);
         }
         if(viewPlayer != null){
-            viewPlayer.setVisibility(View.GONE);
+            viewPlayer.setVisibility(View.INVISIBLE);
         }
     }
 
     private void saveUserVol(){
         SharedPreferences.Editor preferences = getActivity().getSharedPreferences(getString(R.string.preferences_file_name), Context.MODE_PRIVATE).edit();
         preferences.putInt(getString(R.string.preferences_user_vol), currentUserVol);
-        preferences.commit();
+        preferences.apply();
     }
 
 }

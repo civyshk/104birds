@@ -1,5 +1,6 @@
 package net.project104.civyshkbirds;
 
+import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import java.util.regex.Pattern;
 
 public class ActivityAbout extends ActivityAnimation{
 
+    @SuppressLint("MissingSuperCall")
     protected void onCreate(Bundle savedInstanceState){
         Bundle bundle;
         if (savedInstanceState == null) {

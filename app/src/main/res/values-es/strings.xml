@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">104 Aves</string>
-    <string name="preferences_user_vol">UserVol</string>
 
     <string name="main_title">@string/app_name</string>
     <string name="title_activity_game">¡Responde!</string>
@@ -42,5 +41,7 @@
     <string name="about_author_header">Desarrollador</string>
     <string name="about_audio_header">Grabaciones de audio</string>
     <string name="about_pictures_header">Fotografías</string>
+    <string name="menu_item_condensed_show_stars">Estrellas</string>
+    <string name="menu_item_show_stars">Fondo con estrellas</string>
 
 </resources>

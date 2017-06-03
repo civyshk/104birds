@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_audio_header">Audio Aufnahmen</string>
+    <string name="about_author_header">Entwickler</string>
+    <string name="about_pictures_header">Bilder</string>
+    <string name="attribution">Namensnennung</string>
+    <string name="author">Autor</string>
+    <string name="creative_commons">Creative Commons</string>
+    <string name="menu_item_about">Über 104 Vögel</string>
+    <string name="app_name">104 Vögel</string>
+    <string name="main_title">@string/app_name</string>
+    <string name="menu_item_condensed_difficult">Schwierig</string>
+    <string name="menu_item_latin_names">Wissenschaftlichen Namen</string>
+    <string name="menu_item_condensed_show_stars">Sterne</string>
+    <string name="menu_item_show_stars">Hintergrund mit Sternen</string>
+    <string name="more">Mehr…</string>
+    <string name="play_cheeps">Wer singt?</string>
+    <string name="play_names">Welcher Vogel ist das?</string>
+    <string name="play_pictures">Was ist sein Name?</string>
+    <string name="recorded_by">Aufgenommen von</string>
+    <string name="see_cards">Karten</string>
+    <string name="see_wikimedia_picture">Bild in Wikimedia sehen</string>
+    <string name="share_alike">Weitergabe unter gleichen Bedingungen</string>
+    <string name="show_bird">Vogel zeigen…</string>
+    <string name="show_picture">Bild zeigen…</string>
+    <string name="title_activity_cards">Vögel</string>
+    <string name="title_activity_game">Antworten Sie!</string>
+    <string name="title_activity_picture_info">Bild</string>
+    <string name="title_fragment_results">Ergebnis</string>
+    <string name="user">Benutzer</string>
+    <string name="version">Version</string>
+    <string name="which_is_x" formatted="false">Welcher ist %s?</string>
+    <string name="x_y" formatted="false">%d/%d</string>
+    <string name="youve_got_x_correct_answers" formatted="false">%d richtigen Antworten von %d</string>
+</resources>

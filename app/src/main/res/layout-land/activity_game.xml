@@ -6,14 +6,14 @@
     android:padding="0dp"
     android:background="@color/sky_0"
     tools:context=".GameActivity">
-<!--
+
     <ImageView android:id="@+id/ivStars"
         android:src="@drawable/stars"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:alpha="0.0"/>
--->
+
     <FrameLayout
         android:id="@+id/gameFrame"
         android:layout_width="match_parent"

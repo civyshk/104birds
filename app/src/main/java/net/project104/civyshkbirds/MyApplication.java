@@ -1,7 +1,7 @@
 package net.project104.civyshkbirds;
 
 import android.app.Application;
-
+/*
 import net.project104.swartznetlibrary.JmdHelper;
 import net.project104.swartznetlibrary.NetHandler;
 
@@ -33,3 +33,4 @@ public class MyApplication extends Application {
     }
 
 }
+*/
