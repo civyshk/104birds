@@ -1,10 +1,12 @@
 # 104 Birds Quiz
 
-
-
 [Home Page](http://104birdsquiz.project104.net)
 
 [Google Play](https://play.google.com/store/apps/details?id=net.project104.civyshkbirds)
+
+## Privacy
+
+This app does not access, read, analyze nor collect any personal or non personal information.
 
 ---
 
