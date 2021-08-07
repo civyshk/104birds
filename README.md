@@ -2,9 +2,9 @@
 
 ## Links
 
-[Home Page](http://104birdsquiz.project104.net)
+[Web game at project104.net](http://104birdsquiz.project104.net)
 
-[Google Play](https://play.google.com/store/apps/details?id=net.project104.civyshkbirds)
+[Android app at Google Play](https://play.google.com/store/apps/details?id=net.project104.civyshkbirds)
 
 ## Info
 
