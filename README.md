@@ -1,7 +1,5 @@
 # 104 Birds Quiz
 
----
-
 ## Links
 
 [Home Page](http://104birdsquiz.project104.net)
